@@ -8,7 +8,7 @@ describe("Sauce Demo E2E Test", () => {
 
     it('Check page title', async () => {
         const title = await browser.getTitle()
-        // Assertion 1: Using assert
+        //assert
         assert.include(title, 'Swag Labs');
     })
 
@@ -19,6 +19,7 @@ describe("Sauce Demo E2E Test", () => {
     })
 
     it('Add item to cart and checkout', async () => {
+        //expect
         expect(await $('.inventory_item_price').getText()).to.equal('$29.99')
         await $('#add-to-cart-sauce-labs-backpack').click()
         await $('.shopping_cart_link').click()
@@ -31,14 +32,17 @@ describe("Sauce Demo E2E Test", () => {
         await $('#continue').click()
 
         const itemName = await $('.inventory_item_name').getText();
+        //assert
         assert.equal(itemName, "Sauce Labs Backpack", "Item name should match the expected value");;
         const totalPrice = await $('.summary_total_label').getText();
+        //should
         totalPrice.should.include('$32.39', 'Total price should include $32.39')
     })
 
     it("Finish shopping", async () => {
         await $('#finish').click()
         await $('#back-to-products').click()
+        //expect
         expect(await $('.app_logo').getText()).to.equal("Swag Labs")
     })
 });
