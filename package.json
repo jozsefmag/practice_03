@@ -1,0 +1,15 @@
+{
+  "name": "practice_04",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/cli": "^9.4.1",
+    "@wdio/local-runner": "^9.4.1",
+    "@wdio/mocha-framework": "^9.2.8"
+  },
+  "scripts": {
+    "test": "wdio run src/core/wdio.conf.js"
+  },
+  "dependencies": {
+    "chai": "^5.1.2"
+  }
+}
